@@ -1,41 +1,42 @@
-import { useState } from 'react'
-import { MdDarkMode } from "react-icons/md";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { MdDarkMode } from "react-icons/md"
+import "./App.css"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import Headline from "./components/Headline"
+import WorkExperience from "./components/WorkExperiences"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="header flex items-center">
-        <h1>Header</h1>
-        <div className="flex items-center ml-auto">
-          <MdDarkMode className="size-6" />
+      <MdDarkMode className="size-6 absolute top-3 right-3" />
+      <div className="flex justify-between md:px-24 md:gap-4">
+        <header className="md:sticky md:top-0 md:w-1/2 md:max-h-screen md:py-20 text-center md:text-left sticky top-0">
+          <h1 className="font-bold dark:text-slate-100">Fabio Trisera</h1>
+          <h3 className="text-slate-900 dark:text-slate-100">
+            Senior Software Engineer
+          </h3>
+          <h4 className="text-slate-700 dark:text-slate-400 mt-6">
+            Full-Stack Development
+          </h4>
+          <ul>
+            <li>
+              <a href="#headline">Headline</a>
+            </li>
+            <li>
+              <a href="#work-experiences">Work Experience</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+          </ul>
+          <div className="flex mt-6 gap-x-4 justify-center md:justify-start">
+            <FaGithub className="size-8" />
+            <FaLinkedin className="size-8" />
+          </div>
+        </header>
+        <div className="md:flex-grow-1 md:w-1/2 md:py-20 flex flex-col">
+          <Headline className="mb-12" />
+          <WorkExperience className="mb-12" />
         </div>
-      </div>
-      <div className="content content-center">
-        <div className="flex flex-row justify-center">
-          <a rel="noopener" href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a rel="noopener" href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-      <h2>Vite + React</h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
       </div>
     </>
   )
