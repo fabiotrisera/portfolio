@@ -3,11 +3,12 @@ import "./App.css"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import Headline from "./components/Headline"
 import WorkExperience from "./components/WorkExperiences"
+import ThemeToggler from "./components/ThemeToggler"
 
 function App() {
   return (
     <>
-      <MdDarkMode className="size-6 absolute top-3 right-3" />
+      <ThemeToggler className="absolute top-3 right-3" />
       <div className="flex justify-between md:px-24 md:gap-4">
         <header className="md:sticky md:top-0 md:w-1/2 md:max-h-screen md:py-20 text-center md:text-left sticky top-0">
           <h1 className="font-bold dark:text-slate-100">Fabio Trisera</h1>
