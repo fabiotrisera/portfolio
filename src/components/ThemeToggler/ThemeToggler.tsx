@@ -1,18 +1,18 @@
-import React from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { UseTheme, UseThemeDispatch } from "./ThemeContext";
 
 interface IThemeToggler {
   className?: string;
 }
 
 function ThemeToggler({ className }: IThemeToggler) {
-    const [darkMode, setDarkMode] = React.useState(false);
-
+    const theme = UseTheme();
+    const dispatch = UseThemeDispatch();
 
     function handleDarkMode() {
         const html = document.querySelector("html");
         html?.classList.toggle("dark");
-        setDarkMode(!darkMode);
+        dispatch!({ type: "toggle" });
     }
 
     return (
@@ -21,7 +21,7 @@ function ThemeToggler({ className }: IThemeToggler) {
             className={`bg-transparent focus:border-transparent hover:border-transparent focus:outline-none ${className}`}
             onClick={handleDarkMode}
         >
-            {darkMode ? (
+            {theme.mode === 'dark' ? (
                 <MdOutlineDarkMode className="size-6" />
             ) : (
                 <MdDarkMode className="size-6" />
