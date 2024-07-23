@@ -1,9 +1,13 @@
+import Highlights from "./Highlights";
+import Skills from "./Skills";
+
 interface ExperienceProps {
   jobTitle: string
   companyName: string
   companyWebsite: string
   className?: string,
-  highlights: string[]
+  highlights: string[],
+  skills: string[]
 }
 
 function Experience({
@@ -11,28 +15,24 @@ function Experience({
   companyName,
   companyWebsite,
   className,
-  highlights
+  highlights,
+  skills
 }: ExperienceProps) {
-
-    const highlightsList = highlights.map((highlight, index) => {
-        return (
-            <li key={index} className="mb-3">
-            <p>{highlight}</p>
-            </li>
-        );
-    });
 
   return (
     <>
       <section className={`${className}`}>
-        <section className="flex justify-between text-slate-100 font-medium">
+        <section className="flex justify-between text-slate-900 dark:text-slate-100 font-medium">
           <h3>{jobTitle}</h3>
           <h3>{companyName}</h3>
         </section>
         <section className="text-start">
-            <ul className="list-disc list-outside text-sm">
-                {highlightsList}
-            </ul>
+            <Highlights highlights={highlights} />
+        </section>
+        <section>
+          <ul className="list-disc list-inside text-sm">
+            <Skills skills={skills} />
+          </ul>
         </section>
       </section>
     </>
