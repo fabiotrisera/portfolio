@@ -16,17 +16,17 @@ function ThemeToggler({ className }: IThemeToggler) {
     }
 
     return (
-        <>
-        <button
-            className={`bg-transparent focus:border-transparent hover:border-transparent focus:outline-none ${className}`}
-            onClick={handleDarkMode}
-        >
-            {theme.mode === 'dark' ? (
-                <MdOutlineDarkMode className="size-6" />
-            ) : (
-                <MdDarkMode className="size-6" />
-            )}
-        </button>
+        <>  
+            <button
+                className={`bg-transparent focus:border-transparent hover:border-transparent focus:outline-none ${className}`}
+                onClick={handleDarkMode}
+            >
+                {theme.mode === 'dark' ? (
+                    <MdOutlineDarkMode className="size-6" />
+                ) : (
+                    <MdDarkMode className="size-6" />
+                )}
+            </button>
         </>
     );
 }

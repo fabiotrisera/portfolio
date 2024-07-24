@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <ThemeToggler className="absolute top-3 right-3" />
+        <ThemeToggler className="absolute top-3 right-3"/>
         <div className="flex flex-col ml-5 mr-5 md:flex-row justify-between md:px-24 md:gap-4">
           <Header className="mb-5" />
           <div className="md:flex-grow-1 md:w-1/2 md:py-20 flex flex-col">
