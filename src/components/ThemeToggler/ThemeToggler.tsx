@@ -1,5 +1,6 @@
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { UseTheme, UseThemeDispatch } from "./ThemeContext";
+import ParticleToggler from "./ParticleToggler";
 
 interface IThemeToggler {
   className?: string;
@@ -17,6 +18,7 @@ function ThemeToggler({ className }: IThemeToggler) {
 
     return (
         <>  
+            <ParticleToggler mode={theme.mode} />
             <button
                 className={`bg-transparent focus:border-transparent hover:border-transparent focus:outline-none ${className}`}
                 onClick={handleDarkMode}
