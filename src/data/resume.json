@@ -1,0 +1,44 @@
+{
+    "fullName": "Fabio Trisera",
+    "jobTitle": "Senior Software Engineer",
+    "headline": [
+        "Over 15 years of experience in full-stack development, specializing in Angular, React, and .NET Core. Proficient in testing frameworks and methodologies, with extensive exposure to microservice with Docker and comprehensive cloud technologies, including Azure and AWS.",
+        "Proven leader in guiding and mentoring global teams to deliver scalable software solutions. Expertise in microservices architecture, CI/CD. Skilled at driving technology initiatives, fostering innovation, and implementing best practices to enhance software quality and reliability. Dedicated to continuous improvement and cross-functional teamwork to achieve business goals."
+    ],
+    "workExperiences": [
+        {
+            "companyName": "ZINC GROUP",
+            "companyUrl": "https://www.zincgroup.com",
+            "jobTitle": "Senior Developer",
+            "highlights": [
+                "Planned and migrated existing large-scale supply chain management system monolith to AWS cloud resources such as AWS Lambda, AWS RDS, AWS API Gateway, AWS ELB, AWS CloudFront, AWS CloudWatch, CloudTrail for observability and AWS CloudFormation for IaaS deployment, creating a distributed,scalable system with React, Redux and TypeScript front-end by following best practices.",
+                "Defined development team coding standards and best practices,code review process by using Github pull request, and Improving existing CI/CD and automated testing through unit testing and end-to-end testing (Cypress & Playwright) in Github Action, which resulted in a 20% increase in software quality, reliability, and security"
+            ],
+            "skills": ["React", "Redux", "TypeScript", "AWS", "CI/CD", "Cypress", "Playwright"]
+        },
+        {
+            "companyName": "Frontier Software",
+            "companyUrl": "https://au.frontiersoftware.com",
+            "jobTitle": "Web Development Manager",
+            "highlights": [
+                "Helped build a technology culture that embraces the latest web technology, spearheading upgrade of AngularJs application to the latest Angular and building reusable component library and following industry best practices through regular team product and technology showcases, resulting in an average 20% increase in team velocity, 25% improved code quality, and an 80% team retention rate",
+                "Provided each team and the board with comprehensive metrics through various static code analysis and performance test tools that allowed each team to create progressive milestones throughout the sprint, which increased product team ownership, a 25% improvement in code quality and a 20% increase in security compliance",
+                "Cultivated an agile-driven culture across engineering teams using Azure DevOps by removing roadblocks and technical limitations, resulting in a 30% increase in speed in product delivery.",
+                "Help foster test-driven development within each team's agile development practices, resulting in a 25% reduction in software bugs and increased software quality",
+                "Hired and mentored five developers, guiding some to become influential team leaders, resulting in improved team culture, satisfaction and retention"
+            ],
+            "skills": ["Team Leadership", "People Management", "Project Management", "Angular", "Azure DevOps", "TDD", "Microservices", "Agile"]
+        },
+        {
+            "companyName": "Pearson Australia",
+            "companyUrl": "https://www.pearson.com/en-au/",
+            "jobTitle": "Software Development Manager",
+            "highlights": [
+                "Managed a team of 4 developers (onshore & offshore) in agile-driven development, successfully delivering a critical number of projects using Angular 2+ and TypeScript within budget and time constraints.",
+                "Worked with multiple teams to devise best practices and coding standards, resulting in a 20% increase in code quality and consistency across projects",
+                "Collaborated with a team member who achieved a high sprint completion rate (90%) by setting clear goals, defining precise acceptance criteria, and implementing effective planning, which ensured timely and in-scope delivery."
+            ],
+            "skills": ["People Management", "Project Management", "Angular", "SQL", "C#", "Agile"]
+        }
+    ]
+}
