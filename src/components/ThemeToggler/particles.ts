@@ -166,7 +166,7 @@ const pJS = function(tag_id: string, params){
     }
 
     pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
-    pJS.canvas.h = document.getElementById("content")!.scrollHeight; //pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
+    pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
 
     pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio;
     pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
@@ -1445,10 +1445,6 @@ Object.deepExtend = function(destination, source) {
 
 const requestAnimFrame = (function(){
   return  window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame    ||
-    window.oRequestAnimationFrame      ||
-    window.msRequestAnimationFrame     ||
     function(callback){
       window.setTimeout(callback, 1000 / 60);
     };
@@ -1456,10 +1452,6 @@ const requestAnimFrame = (function(){
 
 const cancelRequestAnimFrame = ( function() {
   return window.cancelAnimationFrame         ||
-    window.webkitCancelRequestAnimationFrame ||
-    window.mozCancelRequestAnimationFrame    ||
-    window.oCancelRequestAnimationFrame      ||
-    window.msCancelRequestAnimationFrame     ||
     clearTimeout
 } )();
 
@@ -1489,7 +1481,7 @@ function isInArray(value: string, array: string[]) {
 
 /* ---------- particles.js functions - start ------------ */
 
-window.pJSDom = [];
+let pJSDom = [];
 
  export const particlesJS = function(tag_id: string, params: object){
 
@@ -1527,7 +1519,7 @@ window.pJSDom = [];
   canvas_el.style.height = "100%";
 
   /* append canvas */
-  const canvas = document.getElementById(tag_id).appendChild(canvas_el);
+  const canvas = document.getElementById(tag_id)!.appendChild(canvas_el);
 
   /* launch particle.js */
   if(canvas != null){
@@ -1550,7 +1542,7 @@ particlesJS.load = function(tag_id: string, path_config_json: string | URL, call
   xhr.onreadystatechange = function (data) {
     if(xhr.readyState == 4){
       if(xhr.status == 200){
-        const params = JSON.parse(data.currentTarget.response);
+        const params = JSON.parse(data.currentTarget!.response);
         particlesJS(tag_id, params);
         if(callback) callback();
       }else{
