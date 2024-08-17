@@ -1,6 +1,3 @@
-import Keyword from "./Keyword";
-import Keywords from "../data/Keywords";
-
 interface IHeadline {
   className?: string;
   data: string[];

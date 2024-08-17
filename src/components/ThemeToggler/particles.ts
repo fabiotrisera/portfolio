@@ -7,7 +7,7 @@
 /* v2.0.0
 /* ----------------------------------------------- */
 
-const pJS = function(tag_id: string, params){
+const pJS = function(tag_id: string, params: object){
 
   const canvas_el : HTMLElement | null = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
 
