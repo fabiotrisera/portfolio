@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { particlesJS, particleJSUnload } from "./particles.ts"
 
-export default function ParticleToggler({ mode }: { mode: string }) {
+export default function useParticleToggler( mode: string) {
   useEffect(() => {
     if (mode === "dark") {
       particlesJS("particles-js", {

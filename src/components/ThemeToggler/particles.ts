@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* -----------------------------------------------
 /* Author : Vincent Garreau  - vincentgarreau.com
 /* MIT license: http://opensource.org/licenses/MIT
@@ -134,7 +135,8 @@ const pJS = function(tag_id: string, params: object){
     tmp: {}
   };
 
-  var pJS = pJS;
+  // eslint-disable-next-line no-var
+  var pJS: any = pJS;
 
   /* params settings */
   if(params){
@@ -303,12 +305,14 @@ const pJS = function(tag_id: string, params: object){
     }
 
     /* opacity */
-    this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
-    if(pJS.particles.opacity.anim.enable){
-      this.opacity_status = false;
-      this.vo = pJS.particles.opacity.anim.speed / 100;
-      if(!pJS.particles.opacity.anim.sync){
-        this.vo = this.vo * Math.random();
+    if (opacity) {
+      this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
+      if(pJS.particles.opacity.anim.enable){
+        this.opacity_status = false;
+        this.vo = pJS.particles.opacity.anim.speed / 100;
+        if(!pJS.particles.opacity.anim.sync){
+          this.vo = this.vo * Math.random();
+        }
       }
     }
 
@@ -1245,7 +1249,7 @@ const pJS = function(tag_id: string, params: object){
   pJS.fn.vendors.destroypJS = function(){
     cancelAnimationFrame(pJS.fn.drawAnimFrame);
     canvas_el!.remove();
-    pJSDom = null;
+    pJSDom = [];
   };
 
 
@@ -1294,10 +1298,10 @@ const pJS = function(tag_id: string, params: object){
 
         const xhr = new XMLHttpRequest();
         xhr.open('GET', pJS.particles.shape.image.src);
-        xhr.onreadystatechange = function (data) {
+        xhr.onreadystatechange = function (this: XMLHttpRequest, ev: Event) {
           if(xhr.readyState == 4){
             if(xhr.status == 200){
-              pJS.tmp.source_svg = data.currentTarget.response;
+              pJS.tmp.source_svg = (ev.currentTarget as XMLHttpRequest).response;
               pJS.fn.vendors.checkBeforeDraw();
             }else{
               console.log('Error pJS - Image not found');
@@ -1367,7 +1371,7 @@ const pJS = function(tag_id: string, params: object){
     if(pJS.particles.shape.type == 'image'){
 
       if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg == undefined){
-        pJS.tmp.checkAnimFrame = requestAnimFrame(check);
+        pJS.tmp.checkAnimFrame = requestAnimFrame(() => {});
       }else{
         //console.log('images loaded! cancel check');
         cancelRequestAnimFrame(pJS.tmp.checkAnimFrame);
@@ -1430,19 +1434,6 @@ const pJS = function(tag_id: string, params: object){
 
 /* ---------- global functions - vendors ------------ */
 
-Object.deepExtend = function(destination, source) {
-  for (const property in source) {
-    if (source[property] && source[property].constructor &&
-     source[property].constructor === Object) {
-      destination[property] = destination[property] || {};
-      arguments.callee(destination[property], source[property]);
-    } else {
-      destination[property] = source[property];
-    }
-  }
-  return destination;
-};
-
 const requestAnimFrame = (function(){
   return  window.requestAnimationFrame ||
     function(callback){
@@ -1460,7 +1451,7 @@ function hexToRgb(hex: string){
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-     return r + r + g + g + b + b;
+    if (m) return r + r + g + g + b + b;
   });
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
@@ -1501,12 +1492,12 @@ let pJSDom = [];
   /* pJS elements */
   const pJS_tag = document.getElementById(tag_id),
       pJS_canvas_class = 'particles-js-canvas-el',
-      exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+      exist_canvas = pJS_tag!.getElementsByClassName(pJS_canvas_class);
 
   /* remove canvas if exists into the pJS target tag */
   if(exist_canvas.length){
     while(exist_canvas.length > 0){
-      pJS_tag.removeChild(exist_canvas[0]);
+      pJS_tag!.removeChild(exist_canvas[0]);
     }
   }
 
@@ -1523,7 +1514,7 @@ let pJSDom = [];
 
   /* launch particle.js */
   if(canvas != null){
-    pJSDom.push(new pJS(tag_id, params));
+    pJSDom.push(new (pJS as any)(tag_id, params));
   }
 
 };
@@ -1539,10 +1530,10 @@ particlesJS.load = function(tag_id: string, path_config_json: string | URL, call
   /* load json config */
   const xhr = new XMLHttpRequest();
   xhr.open('GET', path_config_json);
-  xhr.onreadystatechange = function (data) {
+  xhr.onreadystatechange = function (data: Event) {
     if(xhr.readyState == 4){
       if(xhr.status == 200){
-        const params = JSON.parse(data.currentTarget!.response);
+        const params: object = JSON.parse((data.currentTarget as XMLHttpRequest).response);
         particlesJS(tag_id, params);
         if(callback) callback();
       }else{

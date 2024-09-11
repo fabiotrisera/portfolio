@@ -1,6 +1,6 @@
+import React from "react";
 import Keywords from "../data/Keywords";
 import Keyword from "./Keyword";
-import React from "react";
 import ReactDOMServer from "react-dom/server";
 
 interface IHeadline {
@@ -18,14 +18,14 @@ function Headline({ className, data }: IHeadline) {
       
       const newHeadline: JSX.Element[] = [];
 
-      matchedKeywords.forEach((keyword: string) => {
+      matchedKeywords.forEach((keyword: string, i: number) => {
         if (newHeadline.length === 0) {
           const index = headline.indexOf(keyword);
           const before = headline.slice(0, index);
           const after = headline.slice(index + keyword.length);
-          newHeadline.push(<>{before}</>);
-          newHeadline.push(<Keyword>{keyword}</Keyword>);
-          newHeadline.push(<>{after}</>);
+          newHeadline.push(<React.Fragment key={`before-${i}`}>{before}</React.Fragment>);
+          newHeadline.push(<Keyword key={i}>{keyword}</Keyword>);
+          newHeadline.push(<React.Fragment key={`after-${i}`}>{after}</React.Fragment>);
         } else {
           newHeadline.forEach((headlineItem, index) => {
             const headlineItemStr = ReactDOMServer.renderToString(headlineItem);
@@ -33,9 +33,9 @@ function Headline({ className, data }: IHeadline) {
                 const indexKeyword = headlineItemStr.indexOf(keyword);
                 const before = headlineItemStr.slice(0, indexKeyword);
                 const after = headlineItemStr.slice(indexKeyword + keyword.length);
-                newHeadline.splice(index, 1, <>{before}</>);
-                newHeadline.splice(index + 1, 0, <Keyword>{keyword}</Keyword>);
-                newHeadline.splice(index + 2, 0, <>{after}</>);
+                newHeadline.splice(index, 1, <React.Fragment key={`before-${i}`}>{before}</React.Fragment>);
+                newHeadline.splice(index + 1, 0, <Keyword key={i}>{keyword}</Keyword>);
+                newHeadline.splice(index + 2, 0, <React.Fragment key={`after-${i}`}>{after}</React.Fragment>);
               }
           });
         }
