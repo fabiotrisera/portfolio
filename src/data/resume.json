@@ -81,5 +81,45 @@
             ],
             "skills": ["SQL", "C#", "ASP.NET Webform", "Java", "Javascript"]
         }
+    ],
+    "projects": [
+        {
+            "title": "E-commerce Marketing Supply Chain Management",
+            "link": "https://prominateshop.com/",
+            "description": "Migrated existing large-scale e-commerce marketing supply chain from monolith ASP.NET MVC application to microservice in AWS public cloud with react front end.",
+            "duration": "June 2022 - Present",
+            "responsibilities": [
+                "Planned decomposed monolith by business domain and through the implementation of strangler pattern for a seamless transition.",
+                "Build API integration with multiple accounting systems (Business Central, Exonet) leveraging AWS SQS for fire-and-forget patterns.",
+                "Migration resulted in increased performance, resilience, agility and reduced operation costs by 25%"
+            ]
+        },
+        {
+            "title": "Monopoly Shop Scan Win",
+            "link": "https://www.monopolyshopscanwin.com.au/",
+            "description": "Monopoly Shop Scan Win provides a fun, gamified shopping experience. It rewards customers for their in-centre visitation and spending and encourages them to explore new retailers and support local businesses.",
+            "duration": "January 2023 - August 2023",
+            "responsibilities": [
+                "Successfully integrated Azure Form Recognizer for receipt scanner capability with tight deadline delivery."
+            ]
+        },
+        {
+            "title": "HR & Payroll Design System",
+            "link": "https://au.frontiersoftware.com/module/ichris",
+            "description": "Building a design system collection of reusable UI elements with the team as part of the UI refresh of all product suites. This will bring consistency and rapid development for the new team when building any new application/module.",
+            "duration": "January 2020 - June 2022",
+            "responsibilities": [
+                "Break down the flagship payroll AngularJs application into reusable Angular components and a web components library, which later became the design system's building block."
+            ]
+        },
+        {
+            "title": "Pearson Lightbook",
+            "link": "https://www.pearson.com/en-au/schools/secondary/digital/lightbook",
+            "description": "Lightbook is a digital textbook platform for secondary school learners and educators in Australia. It offers interactive features such as videos, animations, quizzes, and personalized learning tracking.",
+            "duration": "December 2016 - December 2017",
+            "responsibilities": [
+                "Led the team of 4 developers to rebuild the application from Ember to Angular with a .NET API backend in an agile development environment."
+            ]
+        }
     ]
 }

@@ -5,6 +5,7 @@ import ThemeToggler from "./components/ThemeToggler/ThemeToggler"
 import Header from "./components/Header/Header"
 import { ThemeProvider } from "./components/ThemeToggler/ThemeContext"
 import * as resume from './data/resume.json';
+import Projects from "./components/Projects/Projects"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <div id="content" className="md:flex-grow-1 md:w-1/2 md:py-20 flex flex-col">
             <Headline className="mb-12" data={resume.headline} />
             <WorkExperience className="mb-12 ml-5 mr-5 md:ml-0 md:mr-5" data={resume.workExperiences} />
+            <Projects data={resume.projects} />
           </div>
         </div>
       </ThemeProvider>

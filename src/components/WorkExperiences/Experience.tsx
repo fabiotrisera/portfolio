@@ -46,13 +46,13 @@ function Experience({
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
             >
-              <h3>{companyName}</h3>
+              <h3 className="text-right">{companyName}</h3>
               <span ref={linkRef}>
                 <FaExternalLinkSquareAlt className="ml-1 mt-1 text-slate-900 dark:text-slate-100"></FaExternalLinkSquareAlt>
               </span>
             </a>
           )}
-          {companyWebsite === "" && <h3>{companyName}</h3>}
+          {companyWebsite === "" && <h3 className="text-right">{companyName}</h3>}
         </section>
         <section className="flex justify-end text-slate-900 dark:text-slate-300 font-medium text-sm">{jobLength}</section>
         <section className="text-start">
