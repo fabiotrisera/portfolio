@@ -16,6 +16,7 @@ function WorkExperiences({ className, data }: IWorkExperiences) {
               return <Experience
                 key={index}
                 jobTitle={experience.jobTitle}
+                jobLength={experience.jobLength}
                 companyName={experience.companyName}
                 companyWebsite={experience.companyUrl}
                 className="mb-8"
