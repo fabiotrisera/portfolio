@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 function Keyword({ children }: { children: React.ReactNode }): JSX.Element {
     return (
         <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type JSX } from "react";
 import Keywords from "../data/Keywords";
 import Keyword from "./Keyword";
 import ReactDOMServer from "react-dom/server";
